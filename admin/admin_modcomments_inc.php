@@ -28,14 +28,16 @@ if ( $gBitSystem->isPackageActive('moderation') ){
 	$gBitSmarty->assign( 'commentsModSettings', $commentsModSettings );
 }
 
-if( !empty( $_REQUEST['change_prefs'] ) ) {
-	foreach( array_keys( $commentModSettings ) as $item ) {
-		simple_set_toggle( $item, LIBERTY_PKG_NAME );
+$processForm = set_tab(); 
+
+if( !empty( $_REQUEST['modcomments_prefs'] ) ) {
+	foreach( array_keys( $commentsModSettings ) as $item ) {
+		simple_set_toggle( $item, MODCOMMENTS_PKG_NAME );
 	}
 
 	$formValues = array('comments_per_page', 'comments_default_ordering', 'comments_default_display_mode' , 'comments_default_post_lines');
 	foreach( $formValues as $item ) {
-		simple_set_value( $item, LIBERTY_PKG_NAME );
+		simple_set_value( $item, MODCOMMENTS_PKG_NAME );
 	}
 }
 ?>

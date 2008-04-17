@@ -1,5 +1,5 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_modcomments/comments_moderation_inc.php,v 1.1 2008/04/17 18:19:02 wjames5 Exp $
+// $Header: /cvsroot/bitweaver/_bit_modcomments/comments_moderation_inc.php,v 1.2 2008/04/17 18:44:46 wjames5 Exp $
 // Copyright (c) 2004-2008 bitweaver Group
 // All Rights Reserved.
 // Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details.
@@ -14,7 +14,7 @@ if ( is_file( BIT_ROOT_PATH.'moderation/bit_setup_inc.php' ) ){
 }
 
 if( $gBitSystem->isPackageActive('moderation') &&
-	!defined('comments_moderation_callback') ) {
+	!defined('modcomments_moderation_callback') ) {
 	global $gModerationSystem;
 
 	require_once(MODERATION_PKG_PATH.'ModerationSystem.php');
@@ -29,7 +29,7 @@ if( $gBitSystem->isPackageActive('moderation') &&
 									  ),
 							   );
 
-	function comments_moderation_callback(&$pModeration) {
+	function modcomments_moderation_callback(&$pModeration) {
 		global $gBitUser, $gBitSystem;
 
 		if ($pModeration['type'] == 'comment_post') {
@@ -53,7 +53,7 @@ if( $gBitSystem->isPackageActive('moderation') &&
 
 	// Register our moderation transitions
 	$gModerationSystem->registerModerationListener('liberty',
-												   'comments_moderation_callback',
+												   'modcomments_moderation_callback',
 												   $commentTransitions);
 }
 

@@ -1,18 +1,12 @@
 {strip}
-<div class="floaticon">{bithelp}</div>
-
-<div class="admin modcomments">
-	<div class="header">
-		<h1>{tr}Comment Moderation Settings{/tr}</h1>
-	</div>
-
-	<div class="body">
 	{form}
+		<input type="hidden" name="page" value="{$page}" />
+
 		{jstabs}
 			{jstab title="Comment Moderation"}
 			<p>This feature is new and still in development, you may find it buggy.</p>
 			{legend legend="Moderation Settings"}
-			{foreach from=$commentModerationSettings key=item item=output}
+			{foreach from=$commentsModSettings key=item item=output}
 				<div class="row">
 					{formlabel label=`$output.label` for=$item}
 					{forminput}
@@ -26,9 +20,7 @@
 		{/jstabs}
 
 		<div class="row submit">
-			<input type="submit" name="change_prefs" value="{tr}Change preferences{/tr}" />
+			<input type="submit" name="modcomments_prefs" value="{tr}Change preferences{/tr}" />
 		</div>
 	{/form}
-	</div><!-- end .body -->
-</div><!-- end .liberty -->
 {/strip}
