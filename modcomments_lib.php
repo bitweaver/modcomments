@@ -5,9 +5,10 @@
 require_once( MODCOMMENTS_PKG_PATH.'comments_moderation_inc.php' );
 
 function modcomments_content_store( &$pObject, &$pParamHash ){
+	global $gBitSystem, $gBitUser, $gModerationSystem;
 	if ( $pObject->mType['content_type_guid'] == 'bitcomment' ){
 		// load up root content since we don't have one
-		$rootContent = LibertyBase::getLibertyObject( $storeComment->mInfo['root_id'] );
+		$rootContent = LibertyBase::getLibertyObject( $pParamHash['root_id'] );
 
 		// hold comments for moderation - requires moderation package is installed
 		if(	$gBitSystem->isPackageActive('moderation') &&
@@ -18,10 +19,10 @@ function modcomments_content_store( &$pObject, &$pParamHash ){
 				 $rootContent->getPreference( 'moderate_comments' ))
 			)){
 			// if we are enforcing moderation on the comment then change the status_id
-			$storeComment->storeStatus( -1 );
+			$pObject->storeStatus( -1 );
 			// prep info what we'll store in the moderation ticket
 			$modMsg = tra( "A comment has been submitted to " ).$rootContent->mType['content_description']." ".$rootContent->getTitle();
-			$modDataHash = array( 'display_url' => $storeComment->getDisplayUrl() );
+			$modDataHash = array( 'display_url' => $pObject->getDisplayUrl() );
 			if ( $gBitSystem->isFeatureActive('comments_allow_owner_moderation') ){
 				$modUserId = $rootContent->mInfo['user_id'];
 			}else{
@@ -33,7 +34,7 @@ function modcomments_content_store( &$pObject, &$pParamHash ){
 																		$modUserId,
 																		NULL, 
 																		'p_liberty_edit_comments',
-																		$storeComment->mContentId, 
+																		$pObject->mContentId, 
 																		$modMsg, 
 																		MODERATION_PENDING, 
 																		$modDataHash
