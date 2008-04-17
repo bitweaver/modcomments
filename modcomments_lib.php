@@ -43,9 +43,10 @@ function modcomments_content_store( &$pObject, &$pParamHash ){
 }
 
 function modcomments_content_list_sql( &$pObject, $pParamHash ){
+	global $gBitSystem, $gBitUser;
+	$ret = array();
 	if ( $pObject->mType['content_type_guid'] == 'bitcomment' ){
 		// if comment moderation is enabled join onto the moderation table to get references
-		global $gBitSystem, $gBitUser;
 		if ( $gBitSystem->isFeatureActive('liberty_display_status') &&
 			 $gBitSystem->isPackageActive('moderation')
 			 /* would like to enforce access to the moderations along these terms
@@ -60,9 +61,10 @@ function modcomments_content_list_sql( &$pObject, $pParamHash ){
 			 */
 		   ){
 			// where we have a status_id of -1 join to moderation table
-			$select1 .= ", m.`moderation_id`";
-			$join1 .= " LEFT OUTER JOIN `".BIT_DB_PREFIX."moderation` m ON (m.`content_id` = lc.`content_id`) ";
+			$ret['select_sql'] = ", m.`moderation_id`";
+			$ret['join_sql'] = " LEFT OUTER JOIN `".BIT_DB_PREFIX."moderation` m ON (m.`content_id` = lc.`content_id`) ";
 		}
 	}
+	return $ret;
 }
 ?>
