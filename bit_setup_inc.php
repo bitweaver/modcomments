@@ -12,6 +12,7 @@ if( $gBitSystem->isPackageActive( 'modcomments' ) ) {
 	$gLibertySystem->registerService( LIBERTY_SERVICE_MODCOMMENTS, MODCOMMENTS_PKG_NAME, array(
 		'content_store_function'	=> 'modcomments_content_store',
 		'content_list_sql_function' => 'modcomments_content_list_sql',
+		'content_body_tpl'          => 'bitpackage:modcomments/service_content_body_inc.tpl',
 	) );
 }
 ?>
