@@ -4,7 +4,9 @@
 
 		{jstabs}
 			{jstab title="Comment Moderation"}
-			<p>This feature is new and still in development, you may find it buggy.</p>
+			{if !$gBitSystem->isFeatureActive( 'liberty_display_status' )}
+				<p>To use this feature you must also enabled display of content status. You can enable display of content status in the <a class="item" href="{$smarty.const.KERNEL_PKG_URL}admin/index.php?page=liberty" >{tr}Liberty Settings{/tr}</a></p>
+			{/if}
 			{legend legend="Moderation Settings"}
 			{foreach from=$commentsModSettings key=item item=output}
 				<div class="row">
