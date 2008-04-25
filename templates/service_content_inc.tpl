@@ -1,4 +1,4 @@
-{if $gBitSystem->isFeatureActive( 'liberty_display_status' ) && ($gBitUser->hasPermission('p_liberty_edit_content_status') || $gBitUser->hasPermission('p_liberty_edit_all_status')) && !is_null($serviceHash.content_status_id) && $serviceHash.content_status_id != 50}
+{if $gBitSystem->isFeatureActive( 'liberty_display_status' ) && !is_null($serviceHash.content_status_id) && $serviceHash.content_status_id != 50}
 	<p class="liberty_status">{biticon iname=dialog-warning iexplain="Warning"} {tr}This comment is <strong>{$gContent->getContentStatusName($serviceHash.content_status_id)}</strong>{/tr}.
 		{if $serviceHash.content_status_id == -1 && $gBitSystem->isPackageActive('moderation') &&
 			( 
