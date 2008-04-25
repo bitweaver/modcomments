@@ -40,6 +40,12 @@ function modcomments_content_store( &$pObject, &$pParamHash ){
 																		$modDataHash
 																	);
 		}
+	}elseif($gBitSystem->isPackageActive('moderation') &&
+			( 
+				( $gBitSystem->isFeatureActive( 'comments_allow_owner_moderation' ) && $pObject->hasEditPermission() ) || 
+				( $gBitSystem->isFeatureActive( 'comments_allow_moderation' ) && ( $gBitUser->isAdmin() || $pObject->hasUserPermission('p_liberty_edit_comments') ) )
+			)){
+			$pObject->storePreference( 'moderate_comments', $pParamHash['moderate_comments'] == 'y'?$pParamHash['moderate_comments']:NULL );
 	}
 }
 
