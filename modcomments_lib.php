@@ -52,21 +52,24 @@ function modcomments_content_store( &$pObject, &$pParamHash ){
 function modcomments_content_list_sql( &$pObject, $pParamHash ){
 	global $gBitSystem, $gBitUser;
 	$ret = array();
-	if ( $pObject->mType['content_type_guid'] == 'bitcomment' ){
+
+	if ( $pObject->mType['content_type_guid'] == 'bitcomment' || ( !empty( $pParamHash['include_comments'] ) && $pParamHash['include_comments'] == 'y' ) ){
+		// because board::BitBoardTopic act a little nuts I think this has to be off
+		// $root = $pObject->getRootObj();
 		// if comment moderation is enabled join onto the moderation table to get references
 		if ( $gBitSystem->isFeatureActive('liberty_display_status') &&
-			 $gBitSystem->isPackageActive('moderation')
-			 /* would like to enforce access to the moderations along these terms
-			  * the problem is we can't do a real check because we don't have a reference to the parent content object
-			 && ( 
-				( $gBitSystem->isFeatureActive( 'comments_allow_owner_moderation' ) && $gContent->hasEditPermission() ) ||
+			$gBitSystem->isPackageActive('moderation')
+			// because board::BitBoardTopic act a little nuts I think this has to be off
+			/* &&
+			 ( 
+				( $gBitSystem->isFeatureActive( 'comments_allow_owner_moderation' ) && $root->hasEditPermission() ) ||
 				( 
 					( $gBitSystem->isFeatureActive( 'comments_moderate_all' ) || $gBitSystem->isFeatureActive( 'comments_allow_moderation' ) ) && 
-					( $gBitUser->isAdmin() || $gContent->hasUserPermission('p_liberty_edit_comments') )
+					( $gBitUser->isAdmin() || $root->hasUserPermission('p_liberty_edit_comments') )
 				)
 			 )
-			 */
-		   ){
+			  */
+			 ){
 			// where we have a status_id of -1 join to moderation table
 			$ret['select_sql'] = ", m.`moderation_id`";
 			$ret['join_sql'] = " LEFT OUTER JOIN `".BIT_DB_PREFIX."moderation` m ON (m.`content_id` = lc.`content_id`) ";
@@ -74,4 +77,5 @@ function modcomments_content_list_sql( &$pObject, $pParamHash ){
 	}
 	return $ret;
 }
+
 ?>
