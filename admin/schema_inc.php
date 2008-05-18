@@ -4,6 +4,7 @@ global $gBitInstaller;
 
 $gBitInstaller->registerPackageInfo( MODCOMMENTS_PKG_NAME, array(
 	'description' => 'Allow admins or content creators to moderate comments.',
+	'requirements' => 'ModComments is dependent on <a class="external" href="http://www.bitweaver.org/wiki/moderationpackage">ModerationPackage</a>',
 	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
 ) );
 
