@@ -20,7 +20,7 @@ if ( $gBitSystem->isPackageActive('moderation') ){
 		),
 		"comments_moderate_all" => array(
 			'label' => 'Require moderation of all comments',
-			'note' => 'This forces all comments to be held for moderation before being published. We recommend this only if you are have extensive problems with spam or malicious comments; on high traffic sites this features requires a lot of hands on work to read all comments',
+			'note' => 'This forces all comments to be held for moderation before being published. We recommend this only if you are have extensive problems with spam or malicious comments; on high traffic sites this features requires a lot of hands on work to read all comments.',
 			'page' => '',
 		),
 	);
