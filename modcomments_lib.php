@@ -53,7 +53,7 @@ function modcomments_content_list_sql( &$pObject, $pParamHash ){
 	global $gBitSystem, $gBitUser;
 	$ret = array();
 
-	if ( $pObject->mType['content_type_guid'] == 'bitcomment' || ( !empty( $pParamHash['include_comments'] ) && $pParamHash['include_comments'] == 'y' ) ){
+	if ( (isset( $pObject->mType ) && $pObject->mType['content_type_guid'] == 'bitcomment') || ( !empty( $pParamHash['include_comments'] ) && $pParamHash['include_comments'] == 'y' ) ){
 		// because board::BitBoardTopic act a little nuts I think this has to be off
 		// $root = $pObject->getRootObj();
 		// if comment moderation is enabled join onto the moderation table to get references
