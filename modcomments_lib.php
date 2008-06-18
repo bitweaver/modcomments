@@ -1,5 +1,13 @@
 <?php
 /**
+ * @version $Header: /cvsroot/bitweaver/_bit_modcomments/modcomments_lib.php,v 1.9 2008/06/18 09:33:37 lsces Exp $
+ *
+ * @author   
+ * @version  $Revision: 1.9 $
+ * @package  modcomments
+ */
+
+/**
  * Load up our moderation handlers
  */
 require_once( MODCOMMENTS_PKG_PATH.'comments_moderation_inc.php' );

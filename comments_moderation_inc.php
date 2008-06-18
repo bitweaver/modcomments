@@ -1,9 +1,15 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_modcomments/comments_moderation_inc.php,v 1.2 2008/04/17 18:44:46 wjames5 Exp $
-// Copyright (c) 2004-2008 bitweaver Group
-// All Rights Reserved.
-// Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details.
-
+/**
+ * @version $Header: /cvsroot/bitweaver/_bit_modcomments/comments_moderation_inc.php,v 1.3 2008/06/18 09:33:37 lsces Exp $
+ *
+ * Copyright (c) 2004-2008 bitweaver Group
+ * All Rights Reserved.
+ * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details.
+ *
+ * @author   
+ * @version  $Revision: 1.3 $
+ * @package  modcomments
+ */
 
 /**
  * load up moderation
