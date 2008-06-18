@@ -1,9 +1,9 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_modcomments/modcomments_lib.php,v 1.9 2008/06/18 09:33:37 lsces Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_modcomments/modcomments_lib.php,v 1.10 2008/06/18 10:07:48 lsces Exp $
  *
- * @author   
- * @version  $Revision: 1.9 $
+ * @author  Will <will@onnyturf.com>  
+ * @version  $Revision: 1.10 $
  * @package  modcomments
  */
 
