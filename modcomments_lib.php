@@ -1,9 +1,9 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_modcomments/modcomments_lib.php,v 1.10 2008/06/18 10:07:48 lsces Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_modcomments/modcomments_lib.php,v 1.11 2008/10/20 21:40:10 spiderr Exp $
  *
  * @author  Will <will@onnyturf.com>  
- * @version  $Revision: 1.10 $
+ * @version  $Revision: 1.11 $
  * @package  modcomments
  */
 
@@ -50,7 +50,7 @@ function modcomments_content_store( &$pObject, &$pParamHash ){
 		}
 	}elseif($gBitSystem->isPackageActive('moderation') &&
 			( 
-				( $gBitSystem->isFeatureActive( 'comments_allow_owner_moderation' ) && $pObject->hasEditPermission() ) || 
+				( $gBitSystem->isFeatureActive( 'comments_allow_owner_moderation' ) && $pObject->hasUpdatePermission() ) || 
 				( $gBitSystem->isFeatureActive( 'comments_allow_moderation' ) && ( $gBitUser->isAdmin() || $pObject->hasUserPermission('p_liberty_edit_comments') ) )
 			)){
 			$pObject->storePreference( 'moderate_comments', (!empty( $pParamHash['moderate_comments'] ) && $pParamHash['moderate_comments'] == 'y') ? $pParamHash['moderate_comments'] : NULL );
@@ -70,7 +70,7 @@ function modcomments_content_list_sql( &$pObject, $pParamHash ){
 			// because board::BitBoardTopic act a little nuts I think this has to be off
 			/* &&
 			 ( 
-				( $gBitSystem->isFeatureActive( 'comments_allow_owner_moderation' ) && $root->hasEditPermission() ) ||
+				( $gBitSystem->isFeatureActive( 'comments_allow_owner_moderation' ) && $root->hasUpdatePermission() ) ||
 				( 
 					( $gBitSystem->isFeatureActive( 'comments_moderate_all' ) || $gBitSystem->isFeatureActive( 'comments_allow_moderation' ) ) && 
 					( $gBitUser->isAdmin() || $root->hasUserPermission('p_liberty_edit_comments') )
