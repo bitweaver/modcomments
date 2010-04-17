@@ -1,9 +1,9 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_modcomments/modcomments_lib.php,v 1.11 2008/10/20 21:40:10 spiderr Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_modcomments/modcomments_lib.php,v 1.12 2010/04/17 15:36:07 wjames5 Exp $
  *
  * @author  Will <will@onnyturf.com>  
- * @version  $Revision: 1.11 $
+ * @version  $Revision: 1.12 $
  * @package  modcomments
  */
 
@@ -29,7 +29,7 @@ function modcomments_content_store( &$pObject, &$pParamHash ){
 			// if we are enforcing moderation on the comment then change the status_id
 			$pObject->storeStatus( -1 );
 			// prep info what we'll store in the moderation ticket
-			$modMsg = tra( "A comment has been submitted to " ).$rootContent->mType['content_description']." ".$rootContent->getTitle();
+			$modMsg = tra( "A comment has been submitted to " ).$rootContent->getContentTypeName()." ".$rootContent->getTitle();
 			$modDataHash = array( 'display_url' => $pObject->getDisplayUrl() );
 			if ( $gBitSystem->isFeatureActive('comments_allow_owner_moderation') ){
 				$modUserId = $rootContent->mInfo['user_id'];
