@@ -1,13 +1,13 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_modcomments/comments_moderation_inc.php,v 1.5 2009/10/01 13:45:44 wjames5 Exp $
+ * @version $Header$
  *
  * Copyright (c) 2004-2008 bitweaver Group
  * All Rights Reserved.
  * Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See http://www.gnu.org/copyleft/lesser.html for details.
  *
  * @author  Will <will@onnyturf.com>  
- * @version  $Revision: 1.5 $
+ * @version  $Revision$
  * @package  modcomments
  */
 
