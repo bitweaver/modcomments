@@ -1,5 +1,5 @@
 {if $gBitSystem->isFeatureActive( 'liberty_display_status' ) && $serviceHash.content_type_guid == "bitcomment" && !is_null($serviceHash.content_status_id) && $serviceHash.content_status_id != 50}
-	<p class="liberty_status">{biticon iname=dialog-warning iexplain="Warning"} {tr}This comment is <strong>{$gContent->getContentStatusName($serviceHash.content_status_id)}</strong>{/tr}.
+	<p class="liberty_status">{booticon iname="icon-warning-sign"   iexplain="Warning"} {tr}This comment is <strong>{$gContent->getContentStatusName($serviceHash.content_status_id)}</strong>{/tr}.
 		{if $serviceHash.content_status_id == -1 && $gBitSystem->isPackageActive('moderation') &&
 			( 
 				( $gBitSystem->isFeatureActive( 'comments_allow_owner_moderation' ) && $gContent->hasUpdatePermission() ) || 
