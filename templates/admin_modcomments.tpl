@@ -9,7 +9,7 @@
 			{/if}
 			{legend legend="Moderation Settings"}
 			{foreach from=$commentsModSettings key=item item=output}
-				<div class="row">
+				<div class="control-group">
 					{formlabel label=`$output.label` for=$item}
 					{forminput}
 						{html_checkboxes name="$item" values="y" checked=$gBitSystem->getConfig($item) labels=false id=$item}
@@ -21,7 +21,7 @@
 			{/jstab}
 		{/jstabs}
 
-		<div class="row submit">
+		<div class="control-group submit">
 			<input type="submit" name="modcomments_prefs" value="{tr}Change preferences{/tr}" />
 		</div>
 	{/form}
