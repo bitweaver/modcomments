@@ -22,7 +22,7 @@
 		{/jstabs}
 
 		<div class="control-group submit">
-			<input type="submit" class="btn" name="modcomments_prefs" value="{tr}Change preferences{/tr}" />
+			<input type="submit" class="btn btn-default" name="modcomments_prefs" value="{tr}Change preferences{/tr}" />
 		</div>
 	{/form}
 {/strip}
